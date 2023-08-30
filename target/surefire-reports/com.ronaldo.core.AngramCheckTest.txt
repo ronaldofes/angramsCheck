@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.ronaldo.core.AngramCheckTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in com.ronaldo.core.AngramCheckTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in com.ronaldo.core.AngramCheckTest

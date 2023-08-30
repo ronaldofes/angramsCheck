@@ -15,9 +15,17 @@ public class AnagramCheck {
        return isAlphanumeric(str) || str.isBlank();
     }
 
+    private String nullCheck (String str) {
+        return Objects.requireNonNull(str, "Provide a non null value");
+    }
+
+    private String prettyAnagram (String str) {
+        return removeBlanks(str).toLowerCase();
+    }
+
     boolean isAnagram (String str1, String str2){
-        String str1Adjusted = removeBlanks(Objects.requireNonNull(str1, "Provide a non null value").toLowerCase());
-        String str2Adjusted = removeBlanks(Objects.requireNonNull(str2, "Provide a non null value").toLowerCase());
+        String str1Adjusted = prettyAnagram(nullCheck(str1));
+        String str2Adjusted = prettyAnagram(nullCheck(str2));
 
         if (checkAnagramConditions(str1Adjusted)
                   || checkAnagramConditions(str2Adjusted)

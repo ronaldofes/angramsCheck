@@ -15,26 +15,34 @@ import java.util.Objects;
 <span class="fc bfc" id="L15" title="All 4 branches covered.">       return isAlphanumeric(str) || str.isBlank();</span>
     }
 
-    boolean isAnagram (String str1, String str2){
-<span class="fc" id="L19">        String str1Adjusted = removeBlanks(Objects.requireNonNull(str1, &quot;Provide a non null value&quot;).toLowerCase());</span>
-<span class="fc" id="L20">        String str2Adjusted = removeBlanks(Objects.requireNonNull(str2, &quot;Provide a non null value&quot;).toLowerCase());</span>
+    private String nullCheck (String str) {
+<span class="fc" id="L19">        return Objects.requireNonNull(str, &quot;Provide a non null value&quot;);</span>
+    }
 
-<span class="fc bfc" id="L22" title="All 2 branches covered.">        if (checkAnagramConditions(str1Adjusted)</span>
-<span class="fc bfc" id="L23" title="All 2 branches covered.">                  || checkAnagramConditions(str2Adjusted)</span>
-<span class="fc bfc" id="L24" title="All 2 branches covered.">                  || str1Adjusted.length() != str2Adjusted.length()) {</span>
-<span class="fc" id="L25">            return false;</span>
+    private String prettyAnagram (String str) {
+<span class="fc" id="L23">        return removeBlanks(str).toLowerCase();</span>
+    }
+
+    boolean isAnagram (String str1, String str2){
+<span class="fc" id="L27">        String str1Adjusted = prettyAnagram(nullCheck(str1));</span>
+<span class="fc" id="L28">        String str2Adjusted = prettyAnagram(nullCheck(str2));</span>
+
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (checkAnagramConditions(str1Adjusted)</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">                  || checkAnagramConditions(str2Adjusted)</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">                  || str1Adjusted.length() != str2Adjusted.length()) {</span>
+<span class="fc" id="L33">            return false;</span>
         }
 
-<span class="fc" id="L28">        char [] str1Char = str1Adjusted.toCharArray();</span>
-<span class="fc" id="L29">        char [] str2Char = str2Adjusted.toCharArray();</span>
+<span class="fc" id="L36">        char [] str1Char = str1Adjusted.toCharArray();</span>
+<span class="fc" id="L37">        char [] str2Char = str2Adjusted.toCharArray();</span>
 
-<span class="fc" id="L31">        Arrays.sort(str1Char);</span>
-<span class="fc" id="L32">        Arrays.sort(str2Char);</span>
+<span class="fc" id="L39">        Arrays.sort(str1Char);</span>
+<span class="fc" id="L40">        Arrays.sort(str2Char);</span>
 
-<span class="fc" id="L34">        String str1Sorted = new String(str1Char);</span>
-<span class="fc" id="L35">        String str2Sorted = new String(str2Char);</span>
+<span class="fc" id="L42">        String str1Sorted = new String(str1Char);</span>
+<span class="fc" id="L43">        String str2Sorted = new String(str2Char);</span>
 
-<span class="fc" id="L37">        return str1Sorted.equals(str2Sorted);</span>
+<span class="fc" id="L45">        return str1Sorted.equals(str2Sorted);</span>
     }
 
 }
